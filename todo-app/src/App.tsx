@@ -7,12 +7,12 @@ import InputField from './components/InputField/InputField'
 
 
 const App:React.FC=()=>{ //React.FC is a function component
-  
+  const [todo,setTodo]=useState<string>('')
 
   return (
     <div className="App">
      <span className='heading'>Todo-App</span>
-     <InputField />
+     <InputField  todo={todo} setTodo={setTodo}/>
     </div>
   )
 }
