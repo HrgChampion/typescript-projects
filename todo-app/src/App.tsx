@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
-import logo from './logo.svg'
+
 import './App.css'
 import InputField from './components/InputField/InputField'
 import { Todo } from './components/model'
+import TodoList from './components/TodoList/TodoList'
 
 
 
@@ -26,9 +27,10 @@ const handleAdd=(e:React.FormEvent)=>{
     <div className="App">
      <span className='heading'>Todo-App</span>
      <InputField  todo={todo} setTodo={setTodo} handleAdd={handleAdd}/>
-     {todos.map((t)=>(
+     <TodoList todos={todos} setTodos={setTodos}/>
+     {/* {todos.map((t)=>(
        <li>{t.todo}</li>
-     ))}
+     ))} */}
     </div>
   )
 }
