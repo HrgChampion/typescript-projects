@@ -2,6 +2,7 @@
 import {Invoice} from "../project-1/src/classes/invoice";
 import {Payment} from "../project-1/src/classes/Payment";
 import { HasFormatter } from "./src/interfaces/Hasformatter";
+import { ListTemplate } from "./src/classes/ListTemplate";
 // let docOne:HasFormatter;
 // let docTwo:HasFormatter;
 // docOne=new Invoice("mario","work on the mario website",250);
@@ -22,6 +23,8 @@ const tofrom=document.querySelector("#tofrom") as HTMLInputElement;
 const details=document.querySelector("#details") as HTMLInputElement;
 const amount=document.querySelector("#amount") as HTMLInputElement;
 
+const ul=document.querySelector("ul")!;
+const list=new ListTemplate(ul);
 form.addEventListener("submit",(e:Event)=>{
     e.preventDefault();
     let Doc:HasFormatter;
@@ -31,6 +34,7 @@ form.addEventListener("submit",(e:Event)=>{
     else{
         Doc=new Payment(tofrom.value,details.value,amount.valueAsNumber);
     }
+    list.render(Doc,type.value, "end");
 
     console.log(type.value,tofrom.value,details.value,amount.value);
 }
