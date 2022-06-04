@@ -32,8 +32,8 @@ function App() {
   return (
     <div className="App">
       <Greet name="Himanshu"  isLoggedIn={false}/>
-      {/* <Person name={personName}/>
-      <PersonList names={nameList}/> */}
+      <Person name={personName}/>
+      <PersonList names={nameList}/>
       <Status status='loading'/>
       <Heading>Heading</Heading>
       <Oscar>
