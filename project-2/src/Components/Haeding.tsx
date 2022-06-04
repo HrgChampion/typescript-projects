@@ -1,5 +1,5 @@
 type HeadingProps={
-    children:string;
+    children:string
 }
 
 export const Heading=(props:HeadingProps)=>{
