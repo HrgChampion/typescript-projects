@@ -1,7 +1,7 @@
 type PersonProps={
     name:{
         first:string;
-        last:string;
+        last:string
     }
 }
 
