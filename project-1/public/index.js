@@ -1,3 +1,4 @@
+"use strict";
 // let greet:Function;
 // greet=()=>{
 //     console.log("Hello");
@@ -106,8 +107,9 @@
 // }
 // greetPerson(me);
 // console.log(me)
-import { Invoice } from "./classes/invoice";
-import { Payment } from "./classes/Payment";
+// import { Invoice } from "./classes/invoice";
+// import {Payment} from "./classes/Payment";
+// import { HasFormatter } from "./interfaces/Hasformatter";
 // let docOne:HasFormatter;
 // let docTwo:HasFormatter;
 // docOne=new Invoice("mario","work on the mario website",250);
@@ -118,20 +120,72 @@ import { Payment } from "./classes/Payment";
 // docs.push(docTwo);
 // console.log(docs);
 // const form=document.querySelector("form")!;
-const form = document.querySelector(".new-item-form");
-console.log(form.children);
-const type = document.querySelector("#type");
-const tofrom = document.querySelector("#tofrom");
-const details = document.querySelector("#details");
-const amount = document.querySelector("#amount");
-form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    let Doc;
-    if (type.value === "invoice") {
-        Doc = new Invoice(tofrom.value, details.value, amount.valueAsNumber);
-    }
-    else {
-        Doc = new Payment(tofrom.value, details.value, amount.valueAsNumber);
-    }
-    console.log(type.value, tofrom.value, details.value, amount.value);
-});
+// const form =document.querySelector(".new-item-form") as HTMLFormElement;
+// console.log(form.children);
+// const type=document.querySelector("#type") as HTMLSelectElement;
+// const tofrom=document.querySelector("#tofrom") as HTMLInputElement;
+// const details=document.querySelector("#details") as HTMLInputElement;
+// const amount=document.querySelector("#amount") as HTMLInputElement;
+// form.addEventListener("submit",(e:Event)=>{
+//     e.preventDefault();
+//     let Doc:HasFormatter;
+//     if(type.value==="invoice"){
+//         Doc=new Invoice(tofrom.value,details.value,amount.valueAsNumber);
+//     }
+//     else{
+//         Doc=new Payment(tofrom.value,details.value,amount.valueAsNumber);
+//     }
+//     console.log(type.value,tofrom.value,details.value,amount.value);
+// }
+// );
+// const addUid=<T extends {name:string}>(obj:T)=>{
+//     let uid=Math.floor(Math.random()*100);
+//     return {...obj,uid};
+// }
+// interface Resource<T>{
+//     uid:number;
+//     resourceName:string;
+//     data:T;
+// }
+// let docOne=addUid({name:"Max",age:30});
+// console.log(docOne.age);
+// const docThree:Resource<object>={
+//     uid:1,
+//     resourceName:"book",
+//     data:{
+//         name:"Shaun",
+//     }
+// }
+// const docFour:Resource<string[]>={
+//     uid:2,
+//     resourceName:"book",
+//     data:["Shaun","Max","Anna"]
+// }
+// console.log(docThree,docFour);
+var ResourceType;
+(function (ResourceType) {
+    ResourceType[ResourceType["BOOK"] = 0] = "BOOK";
+    ResourceType[ResourceType["AUTHOR"] = 1] = "AUTHOR";
+    ResourceType[ResourceType["FILM"] = 2] = "FILM";
+    ResourceType[ResourceType["DIRECTOR"] = 3] = "DIRECTOR";
+    ResourceType[ResourceType["PERSON"] = 4] = "PERSON";
+})(ResourceType || (ResourceType = {}));
+const docOne = {
+    uid: 1,
+    resourseType: ResourceType.BOOK,
+    data: { title: 'name of the wind' }
+};
+const docTwo = {
+    uid: 2,
+    resourseType: ResourceType.PERSON,
+    data: { name: 'name of the wind' }
+};
+console.log(docOne, docTwo);
+//tuples
+let arr = ["ryu", 25, true];
+arr[0] = false;
+arr[1] = "yoshi";
+arr = [30, false, 'yoshi'];
+// let tup:[string,number,boolean]=["ryu",25,true];
+// let student: [string, number];
+// student=["Max",25];
