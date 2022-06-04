@@ -12,7 +12,7 @@ export const Status=(props:StatusProps) => {
         message='Data fetched successfully';
     }
     else if(props.status==='error'){
-        message='Error in fetching data';
+        message='Error in fetching data'
     }
 return (
     <div>
